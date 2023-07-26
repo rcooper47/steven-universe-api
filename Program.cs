@@ -1,5 +1,7 @@
 using steven_api.Data;
+using steven_api.Services;
 using Microsoft.EntityFrameworkCore;
+using steven_api.Wrappers;
 
 var builder = WebApplication.CreateBuilder(args);
 var  MyAllowSpecificOrigins = "_myAllowSpecificOrigins";
@@ -11,6 +13,17 @@ builder.Services.AddControllers();
 
 
 builder.Services.Add(new ServiceDescriptor(typeof(CharacterDbContext), new CharacterDbContext(builder.Configuration.GetConnectionString("DefaultConnection"))));
+
+
+builder.Services.AddHttpContextAccessor();
+builder.Services.AddSingleton<IUriService> (o =>
+{
+    var accessor = o.GetRequiredService<IHttpContextAccessor>();
+    var request = accessor.HttpContext.Request;
+    var uri = string.Concat(request.Scheme, "://", request.Host.ToUriComponent());
+
+    return new UriService(uri);
+});
 
 
 builder.Services.AddCors(options =>
@@ -25,6 +38,23 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
 var app = builder.Build();
+app.UseMiddleware<ErrorHandlerMiddleware>();
+// app.UseExceptionHandler(
+//     options =>
+//     {
+//         options.Run(async context =>
+//         {
+//             context.Response.StatusCode = (int)HttpStatusCode.BadRequest;
+//             context.Response.ContentType = "text/html";
+//             var exceptionObject = context.Features.Get<IExceptionHandlerFeature>();
+//             if (null != exceptionObject)
+//             {
+//                 var errorMessage = $"{exceptionObject.Error.Message}";
+//                 await context.Response.WriteAsync(errorMessage).ConfigureAwait(false);
+//             }
+//         });
+//     }
+// );
 
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())

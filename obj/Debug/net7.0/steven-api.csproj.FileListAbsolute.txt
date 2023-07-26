@@ -61,3 +61,16 @@
 /Users/racooper/Documents/GitHub/steven-api/obj/Debug/net7.0/steven-api.pdb
 /Users/racooper/Documents/GitHub/steven-api/obj/Debug/net7.0/steven-api.genruntimeconfig.cache
 /Users/racooper/Documents/GitHub/steven-api/obj/Debug/net7.0/ref/steven-api.dll
+/Users/racooper/Documents/GitHub/steven-api/bin/Debug/net7.0/appsettings.Git.json
+/Users/racooper/Documents/GitHub/steven-api/bin/Debug/net7.0/System.Web.Mvc.dll
+/Users/racooper/Documents/GitHub/steven-api/bin/Debug/net7.0/System.Web.Razor.dll
+/Users/racooper/Documents/GitHub/steven-api/bin/Debug/net7.0/System.Net.Http.Formatting.dll
+/Users/racooper/Documents/GitHub/steven-api/bin/Debug/net7.0/System.Web.Http.dll
+/Users/racooper/Documents/GitHub/steven-api/bin/Debug/net7.0/System.Web.Http.WebHost.dll
+/Users/racooper/Documents/GitHub/steven-api/bin/Debug/net7.0/System.Web.Helpers.dll
+/Users/racooper/Documents/GitHub/steven-api/bin/Debug/net7.0/System.Web.WebPages.Deployment.dll
+/Users/racooper/Documents/GitHub/steven-api/bin/Debug/net7.0/System.Web.WebPages.Razor.dll
+/Users/racooper/Documents/GitHub/steven-api/bin/Debug/net7.0/System.Web.WebPages.dll
+/Users/racooper/Documents/GitHub/steven-api/bin/Debug/net7.0/Microsoft.Web.Infrastructure.dll
+/Users/racooper/Documents/GitHub/steven-api/bin/Debug/net7.0/Newtonsoft.Json.dll
+/Users/racooper/Documents/GitHub/steven-api/bin/Debug/net7.0/Newtonsoft.Json.Bson.dll

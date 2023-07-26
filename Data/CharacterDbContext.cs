@@ -49,9 +49,9 @@ namespace steven_api.Data
         
     }
     // TODO: Is there a more concise way to do the following? (Less repeated codeh)
-    public List<Character> FilterCharacterByName(String name)
+    public Character FilterCharacterByName(String name)
     {
-        List <Character> list = new List<Character>();
+        Character character = new Character();
         using (MySqlConnection conn = GetConnection())
         {
             var sql = $"select * from characters where name = @name";
@@ -61,9 +61,9 @@ namespace steven_api.Data
 
             using (var reader = cmd.ExecuteReader())
             {
-                while (reader.Read())
+                if (reader.Read())
                 {
-                    list.Add(new Character()
+                    character = (new Character()
                     {
                     id = Convert.ToInt32(reader["Id"]),
                     name = reader["Name"].ToString(),
@@ -77,7 +77,7 @@ namespace steven_api.Data
                 }
             }
         }
-        return list;
+        return character;
     }
 public List<Character> FilterCharacterByGem(String gemStone)
     {
@@ -116,7 +116,7 @@ public List<Character> FilterCharacterByGem(String gemStone)
         List <Character> list = new List<Character>();
         using (MySqlConnection conn = GetConnection())
         {
-            var sql = $"select * from characters where gemStone = @status";
+            var sql = $"select * from characters where status = @status";
             conn.Open();
             MySqlCommand cmd = new MySqlCommand(sql, conn);
             cmd.Parameters.AddWithValue("status", status);
@@ -132,7 +132,7 @@ public List<Character> FilterCharacterByGem(String gemStone)
                     gemStone = reader["gemStone"].ToString(),
                     affiliations = reader["affiliations"].ToString(),
                     alignment = reader["alignment"].ToString(),
-                    status = reader["status"].ToString()//,
+                    status = reader["status"].ToString()
                     
                     
                 }); 
@@ -149,7 +149,7 @@ public List<Character> FilterCharacterByGem(String gemStone)
         List <Character> list = new List<Character>();
         using (MySqlConnection conn = GetConnection())
         {
-            var sql = $"select * from characters where gemStone = @alignment";
+            var sql = $"select * from characters where alignment = @alignment";
             conn.Open();
             MySqlCommand cmd = new MySqlCommand(sql, conn);
             cmd.Parameters.AddWithValue("alignment", alignment);
