@@ -11,7 +11,7 @@ using steven_api.Helpers;
 namespace steven_api.Controllers
 {
     [ApiController]
-    [Route("api/[controller]")]
+    [Route("api/v1/")]
     public class CharacterController : ControllerBase
     {
         private readonly CharacterDbContext _characterDbContext;
