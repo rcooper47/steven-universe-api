@@ -48,8 +48,15 @@ namespace steven_api.Data
         return list;
         
     }
-    // TODO: Is there a more concise way to do the following? (Less repeated codeh)
+    // TODO: Is there a more concise way to do the following? (Less repeated code)
     public Character FilterCharacterByName(String name)
+    /**
+    *
+
+    make filter object
+    add all where params to it
+    update query to if val not null, add "where paramName = @value" 
+    */
     {
         Character character = new Character();
         using (MySqlConnection conn = GetConnection())
@@ -58,6 +65,7 @@ namespace steven_api.Data
             conn.Open();
             MySqlCommand cmd = new MySqlCommand(sql, conn);
             cmd.Parameters.AddWithValue("name", name);
+            
 
             using (var reader = cmd.ExecuteReader())
             {
