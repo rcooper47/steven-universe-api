@@ -4,3 +4,7 @@ Inspired by [An API of Ice and Fire](https://github.com/joakimskoog/AnApiOfIceAn
 
 All Routes make GET requests:
 - `GET /api/v1/characters` GET all Characters
+- `GET /api/v1/characters/names/{name}` GET Characters by name
+- `GET /api/v1/characters/statuses/{status}` GET Characters by status
+- `GET /api/v1/characters/gems/{gem}` GET Characters by gemStone
+- `GET /api/v1/characters/alignments/{alignment}` GET Characters by alignment
