@@ -12,7 +12,7 @@ builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 
 
-builder.Services.Add(new ServiceDescriptor(typeof(CharacterDbContext), new CharacterDbContext(builder.Configuration.GetConnectionString("DefaultConnection"))));
+builder.Services.Add(new ServiceDescriptor(typeof(CharacterDbContext), new CharacterDbContext(builder.Configuration.GetConnectionString("AZURE_MYSQL_CONNECTIONSTRING"))));
 
 
 builder.Services.AddHttpContextAccessor();
